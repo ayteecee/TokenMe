@@ -44,7 +44,7 @@ function download_pdf() {
     pdftoken=$(echo ${pdfresponse} | awk -F'Token' '{ print $2 }' | awk -F'"' '{ print $3 }')
     pdfauth=$(echo ${pdfresponse} | awk -F'Auth' '{ print $2 }' | awk -F'"' '{ print $3 }')
     # actually download file
-    curl -s -o bankstatement.pdf "https://canarytokens.org/download?fmt=msword&token=${pdftoken}&auth=${pdfauth}"
+    curl -s -o bankstatement.pdf "https://canarytokens.org/download?fmt=pdf&token=${pdftoken}&auth=${pdfauth}"
 }
 
 # Download tokened AWS Credentials and add/append to the .aws/credentials directory
